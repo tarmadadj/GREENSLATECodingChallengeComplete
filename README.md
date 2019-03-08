@@ -13,9 +13,9 @@ There are also tests for the service layer of the application.
 #Application Structure
 
 In order to check application sources, the base package is located in /src/main/java on the CodeChallengeServer folder
-This application consists implements a MVC Pattern with Inversion of Control in order to manage dependencies, there are  three main layers:
-  - Controller: the controller layer handles the HTTP Requests and responds with the appropiate response, UserController and ProjectController
-  are actually REST Controllers which return JSON on their responses.
+This application consists of a MVC Pattern with Inversion of Control in order to manage dependencies, there are  three main layers:
+  - Controller: the controller layer handles the HTTP Requests and responds with the appropiate response object, UserController and ProjectController
+  are actually REST Controllers which return JSON on their responses while UserProjectsViewController returns the index page.
   - Service: the service layer is composed of the Service Interface and their respective implementations, the point of this division is to 
   futher modularization of the application and to avoid problems like controllers who have dependencies on certain Data Base or Service implementation
   Thats why actual implementations are called JPA[ServiceName]Impl so they can be swapped as needed
@@ -23,7 +23,7 @@ This application consists implements a MVC Pattern with Inversion of Control in 
   with named queries because common methods like findOne and findAll are already handled by the JpaRepository parent
   
  All these layers support the model that was implemented (seen in the package entities). Most classes in this package are annotated with special annotations which make them 
- Hibernate aware and ease the persistence process of the data.
+ Hibernate aware so they can conform with the persistence process of the data.
  
  There is also a testing package in /src/test/java which contains some Junit testing classes for the service layer, test cases are
  not comprehensive by no means but show some of the functionality i think is important to watch for errors
@@ -35,8 +35,8 @@ The web application is located in the CodeChallengeWeb folder and  developed in 
   but i kept intrigued by how to create a true SPA so i developed a second approach. This can be seen in index-old.html
   - Using a true SPA approach with front end rendering using VUE.js CLI, this is a truly powerful tool which implements MVVM pattern
   using components for rendering functionality. I wish to learn more about this developing approach as i feel i could have develop a more
-  dynamic interface with a little more experience. Even so i think that what was done is sufficient for this exercise.
-  My solution consists of a single App component which controls both the table and the select, it Requests information using Axios
+  dynamic interface with a little more experience. Even so i think that this implementation is sufficient for this exercise.
+  My solution consists of a single App component which controls both the table and the select, it Requests information using Axios library 
   and thanks to Vue's two way data binding, it automatically refreshes the table as soon as the data is available.
   
   IN both version of the application the data is loaded dinamically when the page is ready using an AJAX Http Request
