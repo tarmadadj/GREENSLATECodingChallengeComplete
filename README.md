@@ -6,10 +6,12 @@ This solution uses a Springboot MVC Server with a Vue CLI Web Application front 
 
 
 #Spring server
+
 The Backend Server was developed using Springboot with MVC and JPA/Hibernate, every class is documented using JavaDoc Standar.
 There are also tests for the service layer of the application.
 
 #Application Structure
+
 In order to check application sources, the base package is located in /src/main/java on the CodeChallengeServer folder
 This application consists implements a MVC Pattern with Inversion of Control in order to manage dependencies, there are  three main layers:
   - Controller: the controller layer handles the HTTP Requests and responds with the appropiate response, UserController and ProjectController
@@ -27,6 +29,7 @@ This application consists implements a MVC Pattern with Inversion of Control in 
  not comprehensive by no means but show some of the functionality i think is important to watch for errors
 
 #Web Application
+
 The web application is located in the CodeChallengeWeb folder and  developed in two versions:
   - Using backend rendering with Thymeleaf and Vue JS to manage AJAX queries with Axios: i first developed this approach
   but i kept intrigued by how to create a true SPA so i developed a second approach. This can be seen in index-old.html
@@ -39,6 +42,7 @@ The web application is located in the CodeChallengeWeb folder and  developed in 
   IN both version of the application the data is loaded dinamically when the page is ready using an AJAX Http Request
 
 #Limitations
+
 Some of the limitations and areas to improve of this solution are:
 - More rigorous testing: the included testing shows some very basic test cases however i would expand it to cover controllers and entities
 as i had to reimplement some Equals methods
@@ -47,7 +51,8 @@ connected applications and diverse interfaces.
 - More exploration of the Reactive and MVVM posbilities that VUe.js and other frameworks offer
 
 
-#In order to run the Application:
+#In order to run the Application
+
   it is necesary to have an instance of MySQL/MariaDB running on the default port 3306 and user:root password: root
   it is also necessary to execute the database_create_and_populate.sql script
   then the application can be run directly from the Spring STS or with maven.
