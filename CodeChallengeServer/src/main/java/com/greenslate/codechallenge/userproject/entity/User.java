@@ -10,7 +10,11 @@ import javax.persistence.OneToMany;
 import org.springframework.lang.NonNull;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
+/**
+ * User is also an entity i need to persists so it works pretty much like Project
+ * @author Mario Segura
+ *
+ */
 @Entity
 public class User {
 	@Id @GeneratedValue
@@ -54,5 +58,14 @@ public class User {
     
     public User() {
     	
+    }
+    
+    public boolean equals(Object o) {
+    	if(o==null)
+    		return false;
+    	else {
+    		User other = (User)o;
+    		return other.getId().equals(this.getId());
+    	}
     }
 }

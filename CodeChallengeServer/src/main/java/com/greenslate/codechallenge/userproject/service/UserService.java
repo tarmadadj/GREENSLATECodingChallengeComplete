@@ -1,34 +1,22 @@
 package com.greenslate.codechallenge.userproject.service;
 
 import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.greenslate.codechallenge.userproject.entity.User;
 import com.greenslate.codechallenge.userproject.exception.UserNotFoundException;
-import com.greenslate.codechallenge.userproject.repository.UserRepository;
+/**
+ * User UserService interface represents which methods are needed to fulfill the application requirements on Users, also once the interface
+ * is defined we could work on the controller and the service implementation at the same time as both only need to agree
+ * in what methods are to be used, also return values and parameters
+ * @author Mario Segura
+ *
+ */
+public interface UserService {
 
-@Service
-public class UserService {
-	@Autowired
-	private UserRepository userRepository;
-	
-	public List<User> findAll(){
-		return userRepository.findAll();
-	}
-	
-	public User findById(Long id) throws UserNotFoundException {
-		Optional<User> userOptional = userRepository.findById(id);
-		if(userOptional.isPresent()) {
-			return userOptional.get();
-		}else {
-			throw new UserNotFoundException();
-		}
-	}
-	
-	public User save(User user) {
-		return userRepository.save(user);
-	}
+	public List<User> findAll();
+
+	public User findById(Long id) throws UserNotFoundException;
+
+	public User save(User user);
+
 }
